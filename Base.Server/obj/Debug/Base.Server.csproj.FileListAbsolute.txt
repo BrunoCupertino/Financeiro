@@ -1,0 +1,6 @@
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\obj\Debug\ResolveAssemblyReference.cache
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\bin\Debug\Base.Server.dll.config
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\bin\Debug\Base.Server.dll
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\bin\Debug\Base.Server.pdb
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\obj\Debug\Base.Server.dll
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Server\obj\Debug\Base.Server.pdb

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceiroModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FinanceiroModelStoreContainer">
+    <EntitySet Name="AccountsPayable" EntityType="FinanceiroModel.Store.AccountsPayable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaidAccount" EntityType="FinanceiroModel.Store.PaidAccount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Provider" EntityType="FinanceiroModel.Store.Provider" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="FinanceiroModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AccountsPayable_PaidAccount" Association="FinanceiroModel.Store.FK_AccountsPayable_PaidAccount">
+      <End Role="PaidAccount" EntitySet="PaidAccount" />
+      <End Role="AccountsPayable" EntitySet="AccountsPayable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountsPayable_Provider" Association="FinanceiroModel.Store.FK_AccountsPayable_Provider">
+      <End Role="Provider" EntitySet="Provider" />
+      <End Role="AccountsPayable" EntitySet="AccountsPayable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountsPayable_User" Association="FinanceiroModel.Store.FK_AccountsPayable_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AccountsPayable" EntitySet="AccountsPayable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provider_User" Association="FinanceiroModel.Store.FK_Provider_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Provider" EntitySet="Provider" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccountsPayable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="ProviderId" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="decimal" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="PaidAccountId" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaidAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Discount" Type="decimal" />
+    <Property Name="InterestRate" Type="float" />
+    <Property Name="Fine" Type="float" />
+    <Property Name="Rating" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Site" Type="nvarchar" MaxLength="100" />
+    <Property Name="Contato" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="State" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AccountsPayable_PaidAccount">
+    <End Role="PaidAccount" Type="FinanceiroModel.Store.PaidAccount" Multiplicity="0..1" />
+    <End Role="AccountsPayable" Type="FinanceiroModel.Store.AccountsPayable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaidAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountsPayable">
+        <PropertyRef Name="PaidAccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountsPayable_Provider">
+    <End Role="Provider" Type="FinanceiroModel.Store.Provider" Multiplicity="1" />
+    <End Role="AccountsPayable" Type="FinanceiroModel.Store.AccountsPayable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountsPayable">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountsPayable_User">
+    <End Role="User" Type="FinanceiroModel.Store.User" Multiplicity="1" />
+    <End Role="AccountsPayable" Type="FinanceiroModel.Store.AccountsPayable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountsPayable">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provider_User">
+    <End Role="User" Type="FinanceiroModel.Store.User" Multiplicity="1" />
+    <End Role="Provider" Type="FinanceiroModel.Store.Provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

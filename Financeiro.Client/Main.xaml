@@ -1,0 +1,16 @@
+﻿<Window x:Class="Financeiro.Client.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema Financeiro" WindowStartupLocation="Manual" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Background="Lavender" WindowState="Maximized" ResizeMode="CanResize" WindowStyle="SingleBorderWindow" Height="300" Width="778">
+    <Grid>
+        <Menu Height="24" Margin="1,1,1,1" Name="menuPrincipal" VerticalAlignment="Top">
+            <MenuItem Name="miConfiguracao" Header="Configuração">
+                <MenuItem Name="miConfiguracaoFornecedor" Header="Fornecedor" Click="miConfiguracaoFornecedor_Click" />
+                <MenuItem Name="mifConfiguracaoUsuario" Header="Usuário" Click="mifConfiguracaoUsuario_Click" />
+            </MenuItem>
+            <MenuItem Name="miContasPagar" Header="Contas à Pagar" />
+            <MenuItem Name="miContasReceber" Header="Contas à Receber" IsEnabled="False" />
+        </Menu>
+        <Calendar Height="170" HorizontalAlignment="Left" Margin="12,61,0,0" Name="cldContas" VerticalAlignment="Top" Width="180" />
+    </Grid>
+</Window>

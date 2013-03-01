@@ -1,0 +1,5 @@
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Communication\bin\Debug\Base.Communication.dll
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Communication\bin\Debug\Base.Communication.pdb
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Communication\obj\Debug\ResolveAssemblyReference.cache
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Communication\obj\Debug\Base.Communication.dll
+c:\users\bruno\documents\visual studio 2010\Projects\Financeiro.Server\Base.Communication\obj\Debug\Base.Communication.pdb
